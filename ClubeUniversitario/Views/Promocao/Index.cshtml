@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Entidades.Promocao>
+
+@{
+    ViewBag.Title = "Promoções";
+}
+
+<h2>Promoções</h2>
+
+<p>
+    @Html.ActionLink("Criar nova promoção", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Parceiro
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeStr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagemStr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescricaoStr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdUtilizacaoDiaInt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AtivaBool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCadastroBr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataValidadeBr)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parceiro.nomeStr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeStr)
+        </td>
+        <td>
+            <img width="200" height="200" src="~/Content/images/promocoes/@item.ImagemStr" />
+            @*@Html.DisplayFor(modelItem => item.ImagemStr)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescricaoStr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtdUtilizacaoDiaInt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AtivaBool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataCadastroBr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataValidadeBr)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idPromocao }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.idPromocao }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.idPromocao })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,41 @@
+﻿@model Entidades.Parceiro
+
+@{
+    ViewBag.Title = "Detalhes do Parceiro: " + Model.nomeStr;
+}
+
+<h2>@Model.nomeStr</h2>
+
+<div>
+    <hr />
+    <div style="width:100%;text-align:center">
+        <img width="200" height="200" src="~/Content/images/parceiros/@Model.imagemStr" />
+    </div>
+    
+  <hr />
+  <h1>Promoções</h1>
+
+    <table class="table">
+        <tr>
+            <td>
+                <div style="margin-left:15%;text-align:center">
+                    @foreach (var item in ViewBag.ListaPromocao)
+                    {
+
+                        <div class="col-md-5" style="margin-bottom:30px;">
+                            <a href="/Validar/Promocao/@item.idPromocao">
+                                <img style="" width="200" height="200" src="~/Content/images/promocoes/@item.ImagemStr" />
+                            </a>
+                                <br /><br />
+                                <div style="width:100%;text-align:center;font-weight:bold">
+                                    <a href="/Validar/Promocao/@item.idPromocao"> @item.DescricaoStr </a>
+                                </div>
+                        </div>
+                        <br />
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+

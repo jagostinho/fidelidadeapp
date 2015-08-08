@@ -1,0 +1,106 @@
+﻿@model Entidades.Promocao
+
+@{
+    ViewBag.Title = "Editando promoção: "+Model.NomeStr;
+}
+
+<h2>Editando promoção: @Model.NomeStr</h2>
+
+@if (ViewBag.Error != null)
+{
+    <span class="text-danger">Erro: @ViewBag.Error</span>
+}
+@using (Html.BeginForm("Edit", "Promocao", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.idPromocao)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.idParceiro, "Parceiro", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idParceiro", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idParceiro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NomeStr, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NomeStr, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NomeStr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImagemStr,"Imagem atual", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img width="200" height="200" src="~/Content/images/promocoes/@Model.ImagemStr" />
+            </div>
+            @Html.HiddenFor(model => model.ImagemStr)
+        </div>
+        <div class="form-group">
+            @Html.Label("Imagem", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="Imagem" name="upload" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DescricaoStr, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.DescricaoStr, 10, 50, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DescricaoStr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QtdUtilizacaoDiaInt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QtdUtilizacaoDiaInt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QtdUtilizacaoDiaInt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AtivaBool, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.AtivaBool)
+                    @Html.ValidationMessageFor(model => model.AtivaBool, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.DataCadastroDate, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataValidadeDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataValidadeDate, new { htmlAttributes = new { @class = "form-control", @Value = Model.DataValidadeDate } })
+                @Html.ValidationMessageFor(model => model.DataValidadeDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

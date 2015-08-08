@@ -1,0 +1,83 @@
+﻿@model Entidades.Promocao
+
+@{
+    ViewBag.Title = "Detalhes da promoção: " + Model.NomeStr;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Promocao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Parceiro
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parceiro.nomeStr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeStr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeStr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagemStr)
+        </dt>
+
+        <dd>
+            <img width="200" height="200" src="~/Content/images/promocoes/@Model.ImagemStr" />
+            @*@Html.DisplayFor(model => model.ImagemStr)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescricaoStr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescricaoStr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdUtilizacaoDiaInt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdUtilizacaoDiaInt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AtivaBool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtivaBool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastroDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastroDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataValidadeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataValidadeDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idPromocao }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

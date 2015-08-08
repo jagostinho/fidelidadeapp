@@ -1,0 +1,50 @@
+﻿@model Entidades.Parceiro
+
+@{
+    ViewBag.Title = "Detalhes do Parceiro: "+Model.nomeStr;
+}
+
+<h2>Detalhes do Parceiro @Model.nomeStr</h2>
+
+<div>
+    <h4>Parceiro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeStr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeStr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagemStr)
+        </dt>
+
+        <dd>
+            <img width="200" height="200" src="~/Content/images/parceiros/@Model.imagemStr" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AtivoBool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtivoBool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastroDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastroDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idParceiro }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

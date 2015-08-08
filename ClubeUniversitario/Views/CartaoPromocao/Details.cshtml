@@ -1,0 +1,56 @@
+﻿@model Entidades.CartaoPromocao
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Cartao validado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Promocao.NomeStr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Promocao.NomeStr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroStr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroStr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataValidadeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataValidadeDate))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastroDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastroDate))
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.idCartao }) |*@
+    @if (User.IsInRole("admin")) {
+        @Html.ActionLink("Voltar", "Index")
+    }
+    else
+    {
+        @Html.ActionLink("Voltar", "Listar")
+    }
+</p>

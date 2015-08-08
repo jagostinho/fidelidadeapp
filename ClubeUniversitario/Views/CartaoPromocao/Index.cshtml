@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Entidades.CartaoPromocao>
+
+@{
+    ViewBag.Title = "Cartões validados";
+}
+
+<h2>Cartões validados</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => ((Entidades.Promocao)(model.Promocao)).Parceiro.nomeStr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Promocao.NomeStr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroStr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataValidadeBr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCadastroBr)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Promocao.Parceiro.nomeStr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Promocao.NomeStr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroStr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataValidadeBr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataCadastroBr)
+        </td>
+        <td>
+            @*@Html.ActionLink("Editar", "Edit", new { id=item.idCartao }) |*@
+            @Html.ActionLink("Detalhes", "Details", new { id=item.idCartao }) 
+            @*@Html.ActionLink("Excluir", "Delete", new { id=item.idCartao })*@
+            </td>
+        </tr>
+    }
+
+    </table>

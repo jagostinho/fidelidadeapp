@@ -16,8 +16,8 @@
     # fidelidadeapp
     Base application for a fidelity program business.
     This software is currently under BETA version and should be improved to be used in production mode.
-    It's strongly recommended that you improved, check the code before using it for commercial purposes.
-    All changes, updates, improvements in the source code should be made public due to GNU/GPL licence.
+    It's strongly recommended that you improve and verify the whole code before using it for commercial purposes.
+    All changes, updates, improvements or any kind of modification in the source code should be made public due to GNU/GPL licence.
     You are NOT authorized to sell the code.
     Copyright Bruno Assis 2015  <bruno.assis@live.com> 
 
